@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -23,9 +23,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--bg);
     color: var(--text);
@@ -35,7 +33,6 @@
     overflow-x: hidden;
   }
 
-  /* ── GRID BACKGROUND ── */
   body::before {
     content: '';
     position: fixed;
@@ -48,7 +45,6 @@
     z-index: 0;
   }
 
-  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -62,607 +58,185 @@
     justify-content: space-between;
     height: 60px;
   }
-
-  .nav-logo {
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--accent);
-    text-decoration: none;
-    letter-spacing: 0.05em;
-  }
+  .nav-logo { font-family: var(--mono); font-size: 14px; color: var(--accent); text-decoration: none; letter-spacing: 0.05em; }
   .nav-logo span { color: var(--muted); }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-  .nav-links a {
-    font-size: 13px;
-    color: var(--muted);
-    text-decoration: none;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-    font-family: var(--mono);
-  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; font-family: var(--mono); }
   .nav-links a:hover { color: var(--accent); }
 
-  /* ── SECTIONS ── */
   section { position: relative; z-index: 1; }
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 100px 5% 60px;
-  }
-
-  .hero-inner {
-    max-width: 1100px;
-    width: 100%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(0,229,160,0.08);
-    border: 1px solid rgba(0,229,160,0.25);
-    border-radius: 100px;
-    padding: 6px 14px;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 0.06em;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-badge::before {
-    content: '';
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.8); }
-  }
-
-  .hero h1 {
-    font-family: var(--sans);
-    font-size: clamp(2rem, 5vw, 3.4rem);
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
-  }
-
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 5% 60px; }
+  .hero-inner { max-width: 1100px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,229,160,0.08); border: 1px solid rgba(0,229,160,0.25); border-radius: 100px; padding: 6px 14px; font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 0.06em; margin-bottom: 1.5rem; }
+  .hero-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+  .hero h1 { font-family: var(--sans); font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
   .hero h1 .name { color: var(--accent); }
-
-  .hero-role {
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.04em;
-  }
-
-  .hero-role .typed {
-    color: var(--accent2);
-    border-right: 2px solid var(--accent2);
-    animation: blink 1s step-end infinite;
-    padding-right: 4px;
-  }
-
-  @keyframes blink {
-    0%, 100% { border-color: var(--accent2); }
-    50% { border-color: transparent; }
-  }
-
-  .hero-desc {
-    color: var(--muted);
-    font-size: 15px;
-    max-width: 460px;
-    margin-bottom: 2rem;
-    line-height: 1.8;
-  }
-
-  .hero-btns {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--accent);
-    color: #080c10;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: transform 0.15s, box-shadow 0.15s;
-    letter-spacing: 0.02em;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 24px rgba(0,229,160,0.3);
-  }
-
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 14px;
-    transition: border-color 0.2s, color 0.2s;
-  }
-
+  .hero-role { font-family: var(--mono); font-size: 14px; color: var(--muted); margin-bottom: 1.5rem; letter-spacing: 0.04em; }
+  .hero-role .typed { color: var(--accent2); border-right: 2px solid var(--accent2); animation: blink 1s step-end infinite; padding-right: 4px; }
+  @keyframes blink { 0%, 100% { border-color: var(--accent2); } 50% { border-color: transparent; } }
+  .hero-desc { color: var(--muted); font-size: 15px; max-width: 460px; margin-bottom: 2rem; line-height: 1.8; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #080c10; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: transform 0.15s, box-shadow 0.15s; letter-spacing: 0.02em; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 24px rgba(0,229,160,0.3); }
+  .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border); color: var(--text); padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 14px; transition: border-color 0.2s, color 0.2s; }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* ── HERO RIGHT: TERMINAL ── */
-  .hero-terminal {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    font-family: var(--mono);
-    font-size: 13px;
-  }
-
-  .terminal-bar {
-    background: var(--surface2);
-    padding: 10px 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-
+  .hero-terminal { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; font-family: var(--mono); font-size: 13px; }
+  .terminal-bar { background: var(--surface2); padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); }
   .dot { width: 12px; height: 12px; border-radius: 50%; }
-  .dot-r { background: #ff5f57; }
-  .dot-y { background: #ffbd2e; }
-  .dot-g { background: #28c840; }
+  .dot-r { background: #ff5f57; } .dot-y { background: #ffbd2e; } .dot-g { background: #28c840; }
   .terminal-title { margin-left: 8px; color: var(--muted); font-size: 12px; }
-
   .terminal-body { padding: 20px; line-height: 2; }
+  .t-comment { color: #3fb950; } .t-cmd { color: var(--accent2); } .t-key { color: #e3b341; } .t-val { color: var(--accent); } .t-str { color: #a5d6ff; } .t-prompt { color: var(--muted); margin-right: 8px; } .t-output { color: var(--muted); padding-left: 16px; font-size: 12px; }
 
-  .t-comment { color: #3fb950; }
-  .t-cmd { color: var(--accent2); }
-  .t-key { color: #e3b341; }
-  .t-val { color: var(--accent); }
-  .t-str { color: #a5d6ff; }
-  .t-prompt { color: var(--muted); margin-right: 8px; }
-  .t-output { color: var(--muted); padding-left: 16px; font-size: 12px; }
-
-  /* ── STATS BAR ── */
-  .stats-bar {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem 5%;
-    background: var(--surface);
-  }
-
-  .stats-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-
+  .stats-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.5rem 5%; background: var(--surface); }
+  .stats-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
   .stat-item { text-align: center; }
-  .stat-num {
-    font-family: var(--mono);
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--accent);
-    display: block;
-  }
-  .stat-label {
-    font-size: 13px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
+  .stat-num { font-family: var(--mono); font-size: 2rem; font-weight: 700; color: var(--accent); display: block; }
+  .stat-label { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
 
-  /* ── SECTION WRAPPER ── */
-  .section-wrap {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 80px 5%;
-  }
-
-  .section-label {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-
-  .section-title {
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    margin-bottom: 3rem;
-    color: var(--text);
-  }
-
+  .section-wrap { max-width: 1100px; margin: 0 auto; padding: 80px 5%; }
+  .section-label { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .section-title { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 3rem; color: var(--text); }
   .section-title span { color: var(--accent); }
 
-  /* ── SKILL PILLARS ── */
-  .pillars {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .pillar {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.75rem;
-    transition: border-color 0.2s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .pillar::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-  }
-
-  .pillar.p-green::before { background: var(--accent); }
-  .pillar.p-blue::before  { background: var(--accent2); }
-  .pillar.p-purple::before { background: var(--accent3); }
-  .pillar.p-amber::before { background: #f59e0b; }
-
-  .pillar:hover {
-    border-color: var(--accent);
-    transform: translateY(-4px);
-  }
-
-  .pillar-icon {
-    font-size: 28px;
-    margin-bottom: 1rem;
-  }
-
-  .pillar h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+  .pillar { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; transition: border-color 0.2s, transform 0.2s; position: relative; overflow: hidden; }
+  .pillar::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+  .pillar.p-green::before { background: var(--accent); } .pillar.p-blue::before { background: var(--accent2); } .pillar.p-purple::before { background: var(--accent3); } .pillar.p-amber::before { background: #f59e0b; }
+  .pillar:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .pillar-icon { font-size: 28px; margin-bottom: 1rem; }
+  .pillar h3 { font-size: 16px; font-weight: 600; margin-bottom: 0.5rem; }
   .pillar p { font-size: 14px; color: var(--muted); line-height: 1.65; }
-
-  .pillar-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 1rem;
-  }
-
-  .tag {
-    background: rgba(0,229,160,0.07);
-    border: 1px solid rgba(0,229,160,0.15);
-    color: var(--accent);
-    font-family: var(--mono);
-    font-size: 11px;
-    padding: 3px 8px;
-    border-radius: 4px;
-    letter-spacing: 0.04em;
-  }
-
+  .pillar-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+  .tag { background: rgba(0,229,160,0.07); border: 1px solid rgba(0,229,160,0.15); color: var(--accent); font-family: var(--mono); font-size: 11px; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.04em; }
   .tag.blue { background: rgba(0,180,255,0.07); border-color: rgba(0,180,255,0.15); color: var(--accent2); }
   .tag.purple { background: rgba(124,58,237,0.1); border-color: rgba(124,58,237,0.2); color: #a78bfa; }
   .tag.amber { background: rgba(245,158,11,0.07); border-color: rgba(245,158,11,0.15); color: #fbbf24; }
 
-  /* ── SKILLS MATRIX ── */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-  }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .skills-category h3 { font-family: var(--mono); font-size: 13px; color: var(--accent); letter-spacing: 0.08em; margin-bottom: 1.25rem; text-transform: uppercase; }
+  .skill-bar { margin-bottom: 1rem; }
+  .skill-bar-top { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px; }
+  .skill-bar-top .skill-name { color: var(--text); } .skill-bar-top .skill-pct { font-family: var(--mono); color: var(--muted); font-size: 12px; }
+  .skill-track { height: 4px; background: var(--surface2); border-radius: 100px; overflow: hidden; }
+  .skill-fill { height: 100%; border-radius: 100px; background: var(--accent); transition: width 1s ease-out; }
+  .skill-fill.blue { background: var(--accent2); } .skill-fill.purple { background: #7c3aed; } .skill-fill.amber { background: #f59e0b; }
 
-  .skills-category h3 {
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--accent);
-    letter-spacing: 0.08em;
-    margin-bottom: 1.25rem;
-    text-transform: uppercase;
-  }
-
-  .skill-bar {
-    margin-bottom: 1rem;
-  }
-
-  .skill-bar-top {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    margin-bottom: 5px;
-  }
-  .skill-bar-top .skill-name { color: var(--text); }
-  .skill-bar-top .skill-pct { font-family: var(--mono); color: var(--muted); font-size: 12px; }
-
-  .skill-track {
-    height: 4px;
-    background: var(--surface2);
-    border-radius: 100px;
-    overflow: hidden;
-  }
-
-  .skill-fill {
-    height: 100%;
-    border-radius: 100px;
-    background: var(--accent);
-    transition: width 1s ease-out;
-  }
-
-  .skill-fill.blue { background: var(--accent2); }
-  .skill-fill.purple { background: #7c3aed; }
-  .skill-fill.amber { background: #f59e0b; }
-
-  /* ── CERTS ── */
-  .certs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-  }
-
-  .cert-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.25rem 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    transition: border-color 0.2s;
-  }
-
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+  .cert-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem; transition: border-color 0.2s; }
   .cert-card:hover { border-color: var(--accent2); }
-
-  .cert-icon {
-    width: 40px; height: 40px;
-    background: rgba(0,180,255,0.1);
-    border: 1px solid rgba(0,180,255,0.2);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-
-  .cert-name {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 2px;
-  }
-
+  .cert-icon { width: 40px; height: 40px; background: rgba(0,180,255,0.1); border: 1px solid rgba(0,180,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .cert-name { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
   .cert-issuer { font-size: 12px; color: var(--muted); font-family: var(--mono); }
 
-  /* ── PROJECTS ── */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .project-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.75rem;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-
-  .project-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-4px);
-  }
-
-  .project-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1rem;
-  }
-
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+  .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; transition: border-color 0.2s, transform 0.2s; }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .project-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
   .project-emoji { font-size: 28px; }
-
   .project-links { display: flex; gap: 8px; }
-
-  .project-link {
-    font-size: 12px;
-    color: var(--muted);
-    text-decoration: none;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-family: var(--mono);
-    transition: color 0.2s, border-color 0.2s;
-  }
-
+  .project-link { font-size: 12px; color: var(--muted); text-decoration: none; background: var(--surface2); border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; font-family: var(--mono); transition: color 0.2s, border-color 0.2s; }
   .project-link:hover { color: var(--accent); border-color: var(--accent); }
-
   .project-title { font-size: 16px; font-weight: 600; margin-bottom: 0.5rem; }
   .project-desc { font-size: 14px; color: var(--muted); margin-bottom: 1rem; line-height: 1.65; }
 
-  /* ── ABOUT ── */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .about-photo-wrap {
-    position: relative;
-  }
-
-  .about-photo-frame {
-    width: 100%;
-    aspect-ratio: 3/4;
-    max-height: 420px;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    position: relative;
-  }
-
-  .about-photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(20%);
-  }
-
-  .about-accent {
-    position: absolute;
-    bottom: -12px;
-    right: -12px;
-    width: 60%;
-    height: 60%;
-    border: 2px solid var(--accent);
-    border-radius: 12px;
-    z-index: -1;
-  }
-
+  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: center; }
+  .about-photo-wrap { position: relative; }
+  .about-photo-frame { width: 100%; aspect-ratio: 3/4; max-height: 420px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); position: relative; }
+  .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); }
+  .about-accent { position: absolute; bottom: -12px; right: -12px; width: 60%; height: 60%; border: 2px solid var(--accent); border-radius: 12px; z-index: -1; }
   .about-social { display: flex; gap: 10px; margin-top: 1.25rem; flex-wrap: wrap; }
-
-  .social-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 6px 14px;
-    font-size: 12px;
-    text-decoration: none;
-    color: var(--muted);
-    font-family: var(--mono);
-    transition: border-color 0.2s, color 0.2s;
-  }
-
+  .social-pill { display: inline-flex; align-items: center; gap: 6px; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 6px 14px; font-size: 12px; text-decoration: none; color: var(--muted); font-family: var(--mono); transition: border-color 0.2s, color 0.2s; }
   .social-pill:hover { border-color: var(--accent); color: var(--accent); }
-
   .about-text h2 { font-size: 1.75rem; font-weight: 600; margin-bottom: 1rem; }
-
   .about-text p { color: var(--muted); font-size: 15px; line-height: 1.85; margin-bottom: 1rem; }
-
-  .highlight-list {
-    list-style: none;
-    margin-top: 1.25rem;
-  }
-
-  .highlight-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 0.6rem;
-  }
-
-  .highlight-list li::before {
-    content: '▸';
-    color: var(--accent);
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
+  .highlight-list { list-style: none; margin-top: 1.25rem; }
+  .highlight-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--muted); margin-bottom: 0.6rem; }
+  .highlight-list li::before { content: '▸'; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
 
   /* ── CONTACT ── */
-  .contact-section {
-    border-top: 1px solid var(--border);
-    background: var(--surface);
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
+  .contact-section { border-top: 1px solid var(--border); background: var(--surface); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
   .contact-left h2 { font-size: 2rem; font-weight: 600; margin-bottom: 1rem; }
   .contact-left h2 span { color: var(--accent); }
   .contact-left p { color: var(--muted); font-size: 15px; margin-bottom: 1.5rem; }
 
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-
-  .contact-form input,
-  .contact-form textarea {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 16px;
-    color: var(--text);
-    font-family: var(--sans);
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-color: var(--accent);
-  }
-
-  .contact-form textarea { resize: vertical; min-height: 100px; }
-
-  .contact-form ::placeholder { color: var(--muted); }
-
-  /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 1.5rem 5%;
+  /* Social media buttons — compact icon + label */
+  .contact-social-links {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1.5rem;
   }
 
-  footer p { font-size: 13px; color: var(--muted); font-family: var(--mono); }
+  .social-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--muted);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
 
+  .social-link-btn:hover { transform: translateY(-2px); }
+
+  .social-link-btn .s-icon {
+    width: 18px; height: 18px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .social-link-btn.linkedin { border-color: rgba(0,119,181,0.4); }
+  .social-link-btn.linkedin:hover { border-color: #0077b5; color: #0077b5; background: rgba(0,119,181,0.06); }
+
+  .social-link-btn.facebook { border-color: rgba(24,119,242,0.4); }
+  .social-link-btn.facebook:hover { border-color: #1877f2; color: #1877f2; background: rgba(24,119,242,0.06); }
+
+  .social-link-btn.instagram { border-color: rgba(225,48,108,0.4); }
+  .social-link-btn.instagram:hover { border-color: #e1306c; color: #e1306c; background: rgba(225,48,108,0.06); }
+
+  .social-link-btn.whatsapp { border-color: rgba(37,211,102,0.4); }
+  .social-link-btn.whatsapp:hover { border-color: #25d366; color: #25d366; background: rgba(37,211,102,0.06); }
+
+  .social-link-btn.twitter { border-color: rgba(255,255,255,0.2); }
+  .social-link-btn.twitter:hover { border-color: #aaa; color: #ccc; background: rgba(255,255,255,0.04); }
+
+  /* Right side — Send Message, top-center */
+  .contact-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2.5rem;
+    gap: 0.75rem;
+    height: 100%;
+  }
+
+  .send-btn-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+  footer p { font-size: 13px; color: var(--muted); font-family: var(--mono); }
   footer a { color: var(--accent); text-decoration: none; }
 
-  /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: var(--border);
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+  .divider { height: 1px; background: var(--border); max-width: 1100px; margin: 0 auto; }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     .hero-inner { grid-template-columns: 1fr; }
     .hero-terminal { display: none; }
@@ -671,12 +245,12 @@
     .contact-grid { grid-template-columns: 1fr; }
     .stats-inner { justify-content: center; }
     nav .nav-links { display: none; }
+    .contact-right { align-items: flex-start; min-height: auto; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">KH<span>://</span>security</a>
   <ul class="nav-links">
@@ -689,29 +263,21 @@
   <a href="#contact" class="btn-primary" style="padding: 8px 18px; font-size: 13px;">Hire Me</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-badge">Available for opportunities</div>
       <h1>I'm <span class="name">Kavindu<br>Heshan</span></h1>
       <p class="hero-role">&gt; <span class="typed">AI Security Engineer</span></p>
-      <p class="hero-desc">
-        ICT undergraduate at General Sir John Kotelawala Defence University,
-        specializing in building secure and intelligent systems — where machine learning 
-        meets cyber defence.
-      </p>
+      <p class="hero-desc">ICT undergraduate at General Sir John Kotelawala Defence University, specializing in building secure and intelligent systems — where machine learning meets cyber defence.</p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View Projects →</a>
         <a href="#contact" class="btn-outline">Get In Touch</a>
       </div>
     </div>
-
     <div class="hero-terminal">
       <div class="terminal-bar">
-        <div class="dot dot-r"></div>
-        <div class="dot dot-y"></div>
-        <div class="dot dot-g"></div>
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
         <span class="terminal-title">kavindu@ai-sec ~ profile.json</span>
       </div>
       <div class="terminal-body">
@@ -736,60 +302,33 @@
   </div>
 </section>
 
-<!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat-item">
-      <span class="stat-num">13+</span>
-      <span class="stat-label">Certifications</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">10+</span>
-      <span class="stat-label">Projects</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">4</span>
-      <span class="stat-label">Core Domains</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">2026</span>
-      <span class="stat-label">Intake 41 — KDU</span>
-    </div>
+    <div class="stat-item"><span class="stat-num">13+</span><span class="stat-label">Certifications</span></div>
+    <div class="stat-item"><span class="stat-num">10+</span><span class="stat-label">Projects</span></div>
+    <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">Core Domains</span></div>
+    <div class="stat-item"><span class="stat-num">2026</span><span class="stat-label">Intake 41 — KDU</span></div>
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section-wrap">
     <div class="about-grid">
       <div class="about-photo-wrap">
-        <div class="about-photo-frame">
-          <img src="kavinduheshan.jpg" alt="Kavindu Heshan" />
-        </div>
+        <div class="about-photo-frame"><img src="kavinduheshan.jpg" alt="Kavindu Heshan" /></div>
         <div class="about-accent"></div>
         <div class="about-social">
           <a href="https://www.linkedin.com/in/kavindu-heshan-407bb3289" class="social-pill" target="_blank">in LinkedIn</a>
-          <a href="https://github.com" class="social-pill" target="_blank">gh GitHub</a>
+          <a href="https://github.com/Heshan17" class="social-pill" target="_blank">gh GitHub</a>
           <a href="https://www.instagram.com/_kvdu_hezn" class="social-pill" target="_blank">ig Instagram</a>
           <a href="https://www.facebook.com/share/16q8h7qorN/" class="social-pill" target="_blank">fb Facebook</a>
         </div>
       </div>
-
       <div class="about-text">
         <div class="section-label">// About Me</div>
         <h2>AI meets <span style="color:var(--accent)">Security</span></h2>
-        <p>
-          I'm Kavindu Heshan, an ICT undergraduate at the faculty of Technology, 
-          General Sir John Kotelawala Defence University. My work sits at the intersection of 
-          artificial intelligence and cybersecurity — building systems that are not only intelligent 
-          but hardened against modern threats.
-        </p>
-        <p>
-          From training ML models for predictive analytics to engineering secure IoT automation systems, 
-          I'm constantly bridging the gap between academic learning and real-world application. 
-          My goal is to become a leading AI Security Engineer, defending digital infrastructure 
-          with intelligent, ethical, and robust solutions.
-        </p>
+        <p>I'm Kavindu Heshan, an ICT undergraduate at the faculty of Technology, General Sir John Kotelawala Defence University. My work sits at the intersection of artificial intelligence and cybersecurity — building systems that are not only intelligent but hardened against modern threats.</p>
+        <p>From training ML models for predictive analytics to engineering secure IoT automation systems, I'm constantly bridging the gap between academic learning and real-world application. My goal is to become a leading AI Security Engineer, defending digital infrastructure with intelligent, ethical, and robust solutions.</p>
         <ul class="highlight-list">
           <li>Specializing in Adversarial Machine Learning & AI threat modelling</li>
           <li>Building secure, privacy-preserving AI systems</li>
@@ -803,481 +342,173 @@
 
 <div class="divider"></div>
 
-<!-- EXPERTISE PILLARS -->
 <section id="expertise">
   <div class="section-wrap">
     <div class="section-label">// Core Expertise</div>
     <h2 class="section-title">Four Pillars of <span>AI Security</span></h2>
     <div class="pillars">
-
       <div class="pillar p-green">
         <div class="pillar-icon">🤖</div>
         <h3>AI & Machine Learning</h3>
         <p>Designing and training intelligent models for predictive analytics, anomaly detection, and classification tasks.</p>
-        <div class="pillar-tags">
-          <span class="tag">Python</span>
-          <span class="tag">scikit-learn</span>
-          <span class="tag">TensorFlow</span>
-          <span class="tag">ML Ops</span>
-        </div>
+        <div class="pillar-tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">TensorFlow</span><span class="tag">ML Ops</span></div>
       </div>
-
       <div class="pillar p-blue">
         <div class="pillar-icon">🛡️</div>
         <h3>Cybersecurity & Threat Management</h3>
         <p>Identifying, preventing, and responding to cyber threats. From vulnerability assessment to incident response.</p>
-        <div class="pillar-tags">
-          <span class="tag blue">SIEM</span>
-          <span class="tag blue">Pen Testing</span>
-          <span class="tag blue">SOC</span>
-          <span class="tag blue">IDS/IPS</span>
-        </div>
+        <div class="pillar-tags"><span class="tag blue">SIEM</span><span class="tag blue">Pen Testing</span><span class="tag blue">SOC</span><span class="tag blue">IDS/IPS</span></div>
       </div>
-
       <div class="pillar p-purple">
         <div class="pillar-icon">🔐</div>
         <h3>Secure AI System Design</h3>
         <p>Building AI applications resilient to adversarial attacks, model poisoning, prompt injection, and data extraction.</p>
-        <div class="pillar-tags">
-          <span class="tag purple">Adversarial ML</span>
-          <span class="tag purple">Red Teaming</span>
-          <span class="tag purple">AI Safety</span>
-        </div>
+        <div class="pillar-tags"><span class="tag purple">Adversarial ML</span><span class="tag purple">Red Teaming</span><span class="tag purple">AI Safety</span></div>
       </div>
-
       <div class="pillar p-amber">
         <div class="pillar-icon">⚖️</div>
         <h3>Data Privacy & Ethical AI</h3>
         <p>Ensuring sensitive data is handled with rigorous privacy standards while AI solutions conform to ethical principles.</p>
-        <div class="pillar-tags">
-          <span class="tag amber">GDPR</span>
-          <span class="tag amber">Federated Learning</span>
-          <span class="tag amber">AI Ethics</span>
-        </div>
+        <div class="pillar-tags"><span class="tag amber">GDPR</span><span class="tag amber">Federated Learning</span><span class="tag amber">AI Ethics</span></div>
       </div>
-
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="section-wrap">
     <div class="section-label">// Technical Skills</div>
     <h2 class="section-title">Skills <span>Matrix</span></h2>
     <div class="skills-grid">
-
       <div class="skills-category">
         <h3>AI & Machine Learning</h3>
-        <div class="skill-bar">
-          <div class="skill-bar-top"><span class="skill-name">Python</span><span class="skill-pct">90%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:90%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-bar-top"><span class="skill-name">scikit-learn / ML Pipelines</span><span class="skill-pct">80%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-bar-top"><span class="skill-name">Data Analysis & EDA</span><span class="skill-pct">80%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-bar-top"><span class="skill-name">TensorFlow / Deep Learning</span><span class="skill-pct">65%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:65%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-bar-top"><span class="skill-name">Prompt Engineering</span><span class="skill-pct">75%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:75%"></div></div>
-        </div>
+        <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Python</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">scikit-learn / ML Pipelines</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div></div>
+        <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Data Analysis & EDA</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div></div>
+        <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">TensorFlow / Deep Learning</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-fill" style="width:65%"></div></div></div>
+        <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Prompt Engineering</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill" style="width:75%"></div></div></div>
       </div>
-
       <div class="skills-category">
         <h3>Cybersecurity</h3>
-        <div class="skill-bar">
-          <div class="skill-bar-top"><span class="skill-name">Network Security</span><span class="skill-pct">70%</span></div>
-          <div class="skill-track"><div class="skill-fill blue" style="width:70%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-bar-top"><span class="skill-name">Threat Intelligence</span><span class="skill-pct">65%</span></div>
-          <div class="skill-track"><div class="skill-fill blue" style="width:65%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-bar-top"><span class="skill-name">Vulnerability Assessment</span><span class="skill-pct">70%</span></div>
-          <div class="skill-track"><div class="skill-fill blue" style="width:70%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-bar-top"><span class="skill-name">Secure Code Review</span><span class="skill-pct">60%</span></div>
-          <div class="skill-track"><div class="skill-fill blue" style="width:60%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-bar-top"><span class="skill-name">IoT Security</span><span class="skill-pct">65%</span></div>
-          <div class="skill-track"><div class="skill-fill blue" style="width:65%"></div></div>
-        </div>
+        <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Network Security</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill blue" style="width:70%"></div></div></div>
+        <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Threat Intelligence</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-fill blue" style="width:65%"></div></div></div>
+        <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Vulnerability Assessment</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill blue" style="width:70%"></div></div></div>
+        <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Secure Code Review</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill blue" style="width:60%"></div></div></div>
+        <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">IoT Security</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-fill blue" style="width:65%"></div></div></div>
       </div>
-
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- CERTIFICATIONS -->
 <section id="certifications">
   <div class="section-wrap">
     <div class="section-label">// Credentials</div>
     <h2 class="section-title">Certifications & <span>Training</span></h2>
     <div class="certs-grid">
-
-      <div class="cert-card">
-        <div class="cert-icon">🏛️</div>
-        <div>
-          <div class="cert-name">NextGen Campus Cybersecurity Training</div>
-          <div class="cert-issuer">Cybersecurity Foundation</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">🤖</div>
-        <div>
-          <div class="cert-name">Prompt Engineering for ChatGPT</div>
-          <div class="cert-issuer">AI Specialization</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">🐍</div>
-        <div>
-          <div class="cert-name">Python for AI</div>
-          <div class="cert-issuer">Miha Institute</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">💡</div>
-        <div>
-          <div class="cert-name">Introduction to Artificial Intelligence</div>
-          <div class="cert-issuer">AI Fundamentals</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">🔒</div>
-        <div>
-          <div class="cert-name">Introduction to Cybersecurity</div>
-          <div class="cert-issuer">Security Fundamentals</div>
-        </div>
-      </div>
-      
-      <div class="cert-card">
-        <div class="cert-icon">☁️</div>
-        <div>
-          <div class="cert-name">AWS Cloud Practitioner (Foundations)</div>
-          <div class="cert-issuer">Cloud Computing Basics</div>
-        </div>
-      </div>
-      
-      <div class="cert-card">
-        <div class="cert-icon">🛡️</div>
-        <div>
-          <div class="cert-name">CompTIA Security+ (In Progress)</div>
-          <div class="cert-issuer">Industry-Standard Cybersecurity Certification</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">🌐</div>
-        <div>
-          <div class="cert-name">Web Application Security Fundamentals</div>
-          <div class="cert-issuer">OWASP Top 10 & Secure Coding</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">📊</div>
-        <div>
-          <div class="cert-name">Machine Learning Fundamentals</div>
-          <div class="cert-issuer">Model Training & Evaluation</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">🧠</div>
-        <div>
-          <div class="cert-name">Deep Learning & Neural Networks Basics</div>
-          <div class="cert-issuer">AI Model Architecture</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">🔐</div>
-        <div>
-          <div class="cert-name">Ethical Hacking Basics</div>
-          <div class="cert-issuer">Penetration Testing Introduction</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">🧩</div>
-        <div>
-          <div class="cert-name">Linux System Administration Basics</div>
-          <div class="cert-issuer">Command Line & Server Management</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">🌍</div>
-        <div>
-          <div class="cert-name">Networking Fundamentals</div>
-          <div class="cert-issuer">TCP/IP, DNS, HTTP/HTTPS/div>
-        </div>
-      </div>
-
+      <div class="cert-card"><div class="cert-icon">🏛️</div><div><div class="cert-name">NextGen Campus Cybersecurity Training</div><div class="cert-issuer">Cybersecurity Foundation</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🤖</div><div><div class="cert-name">Prompt Engineering for ChatGPT</div><div class="cert-issuer">AI Specialization</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🐍</div><div><div class="cert-name">Python for AI</div><div class="cert-issuer">Miha Institute</div></div></div>
+      <div class="cert-card"><div class="cert-icon">💡</div><div><div class="cert-name">Introduction to Artificial Intelligence</div><div class="cert-issuer">AI Fundamentals</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🔒</div><div><div class="cert-name">Introduction to Cybersecurity</div><div class="cert-issuer">Security Fundamentals</div></div></div>
+      <div class="cert-card"><div class="cert-icon">☁️</div><div><div class="cert-name">AWS Cloud Practitioner (Foundations)</div><div class="cert-issuer">Cloud Computing Basics</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🛡️</div><div><div class="cert-name">CompTIA Security+ (In Progress)</div><div class="cert-issuer">Industry-Standard Cybersecurity Certification</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🌐</div><div><div class="cert-name">Web Application Security Fundamentals</div><div class="cert-issuer">OWASP Top 10 & Secure Coding</div></div></div>
+      <div class="cert-card"><div class="cert-icon">📊</div><div><div class="cert-name">Machine Learning Fundamentals</div><div class="cert-issuer">Model Training & Evaluation</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🧠</div><div><div class="cert-name">Deep Learning & Neural Networks Basics</div><div class="cert-issuer">AI Model Architecture</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🔐</div><div><div class="cert-name">Ethical Hacking Basics</div><div class="cert-issuer">Penetration Testing Introduction</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🧩</div><div><div class="cert-name">Linux System Administration Basics</div><div class="cert-issuer">Command Line & Server Management</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🌍</div><div><div class="cert-name">Networking Fundamentals</div><div class="cert-issuer">TCP/IP, DNS, HTTP/HTTPS</div></div></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="section-wrap">
     <div class="section-label">// Work</div>
     <h2 class="section-title">Featured <span>Projects</span></h2>
     <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-emoji">💧</div>
-          <div class="project-links">
-            <a href="https://ln.run/E2tWG" class="project-link" target="_blank">View ↗</a>
-          </div>
-        </div>
-        <div class="project-title">Water Quality ML Model</div>
-        <div class="project-desc">
-          Machine learning model to predict and assess water quality, enabling accurate monitoring 
-          and early detection of potential contamination events.
-        </div>
-        <div class="pillar-tags">
-          <span class="tag">Python</span>
-          <span class="tag">scikit-learn</span>
-          <span class="tag">ML</span>
-          <span class="tag">Data Science</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-emoji">🧠</div>
-          <div class="project-links">
-            <a href="https://github.com/Heshan17/AI-Model-Development.git" class="project-link" target="_blank">View ↗</a>
-          </div>
-        </div>
-        <div class="project-title">AI Sentiment Analysis</div>
-        <div class="project-desc">
-          Machine learning model to analyze movie reviews and predict sentiment (positive/negative) using NLP and Python in Jupyter Notebook.
-        </div>
-        <div class="pillar-tags">
-          <span class="tag">Python</span>
-          <span class="tag">NLP</span>
-          <span class="tag">ML</span>
-          <span class="tag">Data Science</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-emoji">💰</div>
-          <div class="project-links">
-            <a href="https://github.com/Heshan17/Advance-AI-Model-predict-loan-data-.git" class="project-link" target="_blank">View ↗</a>
-          </div>
-        </div>
-        <div class="project-title">Advance AI Loan Prediction Model</div>
-        <div class="project-desc">
-         End-to-end ML pipeline predicting loan approvals using real-world financial data. Trained Logistic Regression, Random Forest, and Gradient Boosting models.
-        </div>
-        <div class="pillar-tags">
-          <span class="tag">Python</span>
-          <span class="tag">scikit-learn</span>
-          <span class="tag">ML</span>
-          <span class="tag">Data Analysis</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-emoji">🔐</div>
-          <div class="project-links">
-            <a href="https://github.com/Heshan17/SSH-Honeypot-System-.git" class="project-link" target="_blank">View ↗</a>
-          </div>
-        </div>
-        <div class="project-title">SSH Honeypot System – Intrusion Detection</div>
-        <div class="project-desc">
-          Lightweight SSH honeypot capturing unauthorized access attempts for cybersecurity research. Includes command logging, real-time monitoring, and secure environment.
-        </div>
-        <div class="pillar-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Ethical Hacking</span>
-          <span class="tag">Networking</span>
-          <span class="tag">Security</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-emoji">📧</div>
-          <div class="project-links">
-            <a href="https://github.com/Heshan17/Spam-Email-Detector-AI-Model.git" class="project-link" target="_blank">View ↗</a>
-          </div>
-        </div>
-        <div class="project-title">Spam Email Detector</div>
-        <div class="project-desc">
-         ML system classifying emails as Spam or Not Spam using NLP and Multinomial Naive Bayes. Automates email filtering to improve security and communication.
-        </div>
-        <div class="pillar-tags">
-          <span class="tag">Python</span>
-          <span class="tag">scikit-learn</span>
-          <span class="tag">ML</span>
-          <span class="tag">NLP</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-emoji">🌿</div>
-          <div class="project-links">
-            <a href="https://ln.run/W8n7f" class="project-link" target="_blank">View ↗</a>
-          </div>
-        </div>
-        <div class="project-title">Smart Greenhouse IoT System</div>
-        <div class="project-desc">
-          Automated monitoring and control of temperature, humidity, and soil conditions 
-          for optimal plant growth using IoT sensors and automation logic.
-        </div>
-        <div class="pillar-tags">
-          <span class="tag blue">IoT</span>
-          <span class="tag blue">Automation</span>
-          <span class="tag blue">Sensors</span>
-          <span class="tag blue">Security</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-emoji">🗺️</div>
-          <div class="project-links">
-            <a href="https://ln.run/hXw9s" class="project-link" target="_blank">View ↗</a>
-          </div>
-        </div>
-        <div class="project-title">Guide Lanka — Tourism Platform</div>
-        <div class="project-desc">
-          Full-stack travel and tourism web platform providing intelligent recommendations 
-          and secure services to enhance exploration across Sri Lanka.
-        </div>
-        <div class="pillar-tags">
-          <span class="tag purple">Web Dev</span>
-          <span class="tag purple">Full Stack</span>
-          <span class="tag purple">Secure Design</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-emoji">🤖</div>
-          <div class="project-links">
-            <a href="https://github.com/Heshan17/Ai-Chat-Bot-.git" class="project-link" target="_blank">View ↗</a>
-          </div>
-        </div>
-        <div class="project-title">AI Chatbot using OpenAI API</div>
-        <div class="project-desc">
-         Python-based AI chatbot integrating OpenAI API to provide intelligent, conversational responses with secure API key management and error handling.
-        </div>
-        <div class="pillar-tags">
-          <span class="tag purple">Python</span>
-          <span class="tag purple">AI NLP</span>
-          <span class="tag purple">API Integration</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-emoji">🍏</div>
-          <div class="project-links">
-            <a href="https://github.com/Heshan17/Harvesthub-Website.git" class="project-link" target="_blank">View ↗</a>
-          </div>
-        </div>
-        <div class="project-title">HarvestHub – Farm-to-Door Platform</div>
-        <div class="project-desc">
-          Platform connecting local farmers directly with consumers for fresh, organic produce delivery. Focused on UI/UX design, responsive interface, and sustainability.
-        </div>
-        <div class="pillar-tags">
-          <span class="tag purple">Web Dev</span>
-          <span class="tag purple">Frontend Dev</span>
-          <span class="tag purple">Secure Design</span>
-          <span class="tag purple">Team Collaboration</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-emoji">🎮</div>
-          <div class="project-links">
-            <a href="https://scratch.mit.edu/projects/1211162284" class="project-link" target="_blank">View ↗</a>
-          </div>
-        </div>
-        <div class="project-title">Kity Crab – Mini Game</div>
-        <div class="project-desc">
-          Fun mini game where players guide a cat to jump over crabs across multiple levels. Developed independently on the Scratch platform with animations and interactive gameplay.
-        </div>
-        <div class="pillar-tags">
-          <span class="tag purple">Game Dev</span>
-          <span class="tag purple">Problem Solv</span>
-          <span class="tag purple">Creativity</span>
-        </div>
-      </div>
-
+      <div class="project-card"><div class="project-top"><div class="project-emoji">💧</div><div class="project-links"><a href="https://ln.run/E2tWG" class="project-link" target="_blank">View ↗</a></div></div><div class="project-title">Water Quality ML Model</div><div class="project-desc">Machine learning model to predict and assess water quality, enabling accurate monitoring and early detection of potential contamination events.</div><div class="pillar-tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">ML</span><span class="tag">Data Science</span></div></div>
+      <div class="project-card"><div class="project-top"><div class="project-emoji">🧠</div><div class="project-links"><a href="https://github.com/Heshan17/AI-Model-Development.git" class="project-link" target="_blank">View ↗</a></div></div><div class="project-title">AI Sentiment Analysis</div><div class="project-desc">Machine learning model to analyze movie reviews and predict sentiment (positive/negative) using NLP and Python in Jupyter Notebook.</div><div class="pillar-tags"><span class="tag">Python</span><span class="tag">NLP</span><span class="tag">ML</span><span class="tag">Data Science</span></div></div>
+      <div class="project-card"><div class="project-top"><div class="project-emoji">💰</div><div class="project-links"><a href="https://github.com/Heshan17/Advance-AI-Model-predict-loan-data-.git" class="project-link" target="_blank">View ↗</a></div></div><div class="project-title">Advance AI Loan Prediction Model</div><div class="project-desc">End-to-end ML pipeline predicting loan approvals using real-world financial data. Trained Logistic Regression, Random Forest, and Gradient Boosting models.</div><div class="pillar-tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">ML</span><span class="tag">Data Analysis</span></div></div>
+      <div class="project-card"><div class="project-top"><div class="project-emoji">🔐</div><div class="project-links"><a href="https://github.com/Heshan17/SSH-Honeypot-System-.git" class="project-link" target="_blank">View ↗</a></div></div><div class="project-title">SSH Honeypot System – Intrusion Detection</div><div class="project-desc">Lightweight SSH honeypot capturing unauthorized access attempts for cybersecurity research. Includes command logging, real-time monitoring, and secure environment.</div><div class="pillar-tags"><span class="tag">Python</span><span class="tag">Ethical Hacking</span><span class="tag">Networking</span><span class="tag">Security</span></div></div>
+      <div class="project-card"><div class="project-top"><div class="project-emoji">📧</div><div class="project-links"><a href="https://github.com/Heshan17/Spam-Email-Detector-AI-Model.git" class="project-link" target="_blank">View ↗</a></div></div><div class="project-title">Spam Email Detector</div><div class="project-desc">ML system classifying emails as Spam or Not Spam using NLP and Multinomial Naive Bayes. Automates email filtering to improve security and communication.</div><div class="pillar-tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">ML</span><span class="tag">NLP</span></div></div>
+      <div class="project-card"><div class="project-top"><div class="project-emoji">🌿</div><div class="project-links"><a href="https://ln.run/W8n7f" class="project-link" target="_blank">View ↗</a></div></div><div class="project-title">Smart Greenhouse IoT System</div><div class="project-desc">Automated monitoring and control of temperature, humidity, and soil conditions for optimal plant growth using IoT sensors and automation logic.</div><div class="pillar-tags"><span class="tag blue">IoT</span><span class="tag blue">Automation</span><span class="tag blue">Sensors</span><span class="tag blue">Security</span></div></div>
+      <div class="project-card"><div class="project-top"><div class="project-emoji">🗺️</div><div class="project-links"><a href="https://ln.run/hXw9s" class="project-link" target="_blank">View ↗</a></div></div><div class="project-title">Guide Lanka — Tourism Platform</div><div class="project-desc">Full-stack travel and tourism web platform providing intelligent recommendations and secure services to enhance exploration across Sri Lanka.</div><div class="pillar-tags"><span class="tag purple">Web Dev</span><span class="tag purple">Full Stack</span><span class="tag purple">Secure Design</span></div></div>
+      <div class="project-card"><div class="project-top"><div class="project-emoji">🤖</div><div class="project-links"><a href="https://github.com/Heshan17/Ai-Chat-Bot-.git" class="project-link" target="_blank">View ↗</a></div></div><div class="project-title">AI Chatbot using OpenAI API</div><div class="project-desc">Python-based AI chatbot integrating OpenAI API to provide intelligent, conversational responses with secure API key management and error handling.</div><div class="pillar-tags"><span class="tag purple">Python</span><span class="tag purple">AI NLP</span><span class="tag purple">API Integration</span></div></div>
+      <div class="project-card"><div class="project-top"><div class="project-emoji">🍏</div><div class="project-links"><a href="https://github.com/Heshan17/Harvesthub-Website.git" class="project-link" target="_blank">View ↗</a></div></div><div class="project-title">HarvestHub – Farm-to-Door Platform</div><div class="project-desc">Platform connecting local farmers directly with consumers for fresh, organic produce delivery. Focused on UI/UX design, responsive interface, and sustainability.</div><div class="pillar-tags"><span class="tag purple">Web Dev</span><span class="tag purple">Frontend Dev</span><span class="tag purple">Secure Design</span><span class="tag purple">Team Collaboration</span></div></div>
+      <div class="project-card"><div class="project-top"><div class="project-emoji">🎮</div><div class="project-links"><a href="https://scratch.mit.edu/projects/1211162284" class="project-link" target="_blank">View ↗</a></div></div><div class="project-title">Kity Crab – Mini Game</div><div class="project-desc">Fun mini game where players guide a cat to jump over crabs across multiple levels. Developed independently on the Scratch platform with animations and interactive gameplay.</div><div class="pillar-tags"><span class="tag purple">Game Dev</span><span class="tag purple">Problem Solv</span><span class="tag purple">Creativity</span></div></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- CONTACT -->
+<!-- CONTACT — UPDATED SECTION -->
 <section id="contact" class="contact-section">
   <div class="section-wrap">
     <div class="contact-grid">
+
+      <!-- LEFT: Info + Social Buttons -->
       <div class="contact-left">
         <div class="section-label">// Contact</div>
         <h2>Let's <span>Build</span> Something Secure</h2>
-        <p>Interested in collaborating, hiring, or just talking AI security? 
-        Reach out — I'm always open to new opportunities and ideas.</p>
-        <div style="display:flex; flex-direction:column; gap:12px; margin-top:1.5rem;">
-          <div style="font-family:var(--mono); font-size:13px; color:var(--muted);">
-            <span style="color:var(--accent)">›</span> kavinduheshan.com
-          </div>
-          <div style="font-family:var(--mono); font-size:13px; color:var(--muted);">
-            <span style="color:var(--accent)">›</span> linkedin.com/in/kavindu-heshan-407bb3289
-          </div>
-          <div style="font-family:var(--mono); font-size:13px; color:var(--muted);">
-            <span style="color:var(--accent)">›</span> @_kvdu_hezn
-          </div>
+        <p>Interested in collaborating, hiring, or just talking AI security? Reach out — I'm always open to new opportunities and ideas.</p>
+
+      </div>
+
+        <!-- Social Media Buttons -->
+        <div class="contact-social-links">
+
+          <a href="https://www.linkedin.com/in/kavindu-heshan-407bb3289" target="_blank" class="social-link-btn linkedin">
+            <div class="s-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+            LinkedIn
+          </a>
+
+          <a href="https://www.facebook.com/share/16q8h7qorN/" target="_blank" class="social-link-btn facebook">
+            <div class="s-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+            Facebook
+          </a>
+
+          <a href="https://www.instagram.com/_kvdu_hezn" target="_blank" class="social-link-btn instagram">
+            <div class="s-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></div>
+            Instagram
+          </a>
+
+          <a href="https://wa.me/94XXXXXXXXX" target="_blank" class="social-link-btn whatsapp">
+            <div class="s-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></div>
+            WhatsApp
+          </a>
+
+          <a href="https://x.com/_kvdu_hezn" target="_blank" class="social-link-btn twitter">
+            <div class="s-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+            X (Twitter)
+          </a>
+
         </div>
       </div>
 
-      <div class="contact-form">
-        
-       <a href="mailto:2004kavinduheshan@gmail.com">
-            <button class="btn-primary" style="border:none; cursor:pointer;">
-                   Send Message →
-             </button>
-       </a>
+      <!-- RIGHT: Send Message Button — top center -->
+      <div class="contact-right">
+        <div class="send-btn-wrap">
+          <a href="mailto:wvpkavinduheshan@gmail.com">
+            <button class="btn-primary" style="border:none; cursor:pointer; font-size:15px; padding: 14px 32px;">
+              Send Message →
+            </button>
+          </a>
+          <span style="font-family:var(--mono); font-size:11px; color:var(--muted); text-align:center;">wvpkavinduheshan@gmail.com</span>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2026 <a href="#">Kavindu Heshan</a> — AI Security Engineer</p>
   <p style="font-size:12px;">KH://security · Built with intention</p>
